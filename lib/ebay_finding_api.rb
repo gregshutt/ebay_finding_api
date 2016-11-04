@@ -1,5 +1,10 @@
-require "ebay_finding_api/version"
+require 'ebay_finding_api/version'
+require 'ebay_finding_api/client'
 
 module EbayFindingApi
-  # Your code goes here...
+
+  def self.client
+    EbayFindingApi::Client.new() 
+  end
+
 end
