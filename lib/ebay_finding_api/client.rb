@@ -1,6 +1,7 @@
 require 'faraday'
 
 require 'ebay_finding_api/client/completed_items'
+require 'ebay_finding_api/response/parse_json'
 
 module EbayFindingApi
   class Client
@@ -38,7 +39,7 @@ module EbayFindingApi
       @middleware ||= Faraday::RackBuilder.new do |builder|
         builder.use Faraday::Request::UrlEncoded
         #builder.use ActiveCollab::Response::RaiseError
-        #builder.use ActiveCollab::Response::ParseJSON
+        builder.use EbayFindingApi::Response::ParseJSON
         builder.adapter Faraday.default_adapter
       end
     end

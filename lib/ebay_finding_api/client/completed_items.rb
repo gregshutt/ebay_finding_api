@@ -4,7 +4,8 @@ module EbayFindingApi
     module CompletedItems
 
       def find_completed_items(opts = {})
-        get('findCompletedItems', keywords: '9350 qhd')
+        response = get('findCompletedItems', keywords: '0718079183')
+        puts response.body.inspect
       end
 
     end
